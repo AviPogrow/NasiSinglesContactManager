@@ -233,45 +233,35 @@ class FullTimeYeshivaViewController: UIViewController, UITableViewDataSource,UIT
         }
     }
         
-        var model: NasiGirl!
-        model = arrFilterList[indexPath.row]
         
-        cell.nameLabel?.text =  "\(model.nameSheIsCalledOrKnownBy )" + " "  + "\(model.lastNameOfGirl )" //top 1 name
+        var currentGirl = arrFilterList[indexPath.row]
         
-        let heightInFt = model.heightInFeet 
-        let heightInInches = model.heightInInches 
+        cell.nameLabel?.text =  "\(currentGirl.nameSheIsCalledOrKnownBy )" + " "  + "\(currentGirl.lastNameOfGirl )" //top 1 name
+        
+        let heightInFt = currentGirl.heightInFeet
+        let heightInInches = currentGirl.heightInInches
         
         let height = "\(heightInFt)\'" + "\(heightInInches)\""
         
-        cell.ageHeightLabel.text = "\(model.age)" + "-" + height // 2nd Age - Height
+        cell.ageHeightLabel.text = "\(currentGirl.age)" + "-" + height // 2nd Age - Height
         
-        cell.cityLabel.text = "\(model.cityOfResidence )"  // 3rd Label - City
+        cell.cityLabel.text = "\(currentGirl.cityOfResidence )"  // 3rd Label - City
         cell.categoryLabel.textColor = .lightGray
-        cell.categoryLabel.text = "\(model.category ) - " + (model.yearsOfLearning ) // 4th Label - Categories
-        cell.SeminaryLabel.text = model.seminaryName  //5th Label - Seminary
-        cell.parnassahPlanLabel.text = "\(model.plan )"  // 6th Label - Plan
+        cell.categoryLabel.text = "\(currentGirl.category ) - " + (currentGirl.yearsOfLearning ) // 4th Label - Categories
+        cell.SeminaryLabel.text = currentGirl.seminaryName  //5th Label - Seminary
+        cell.parnassahPlanLabel.text = "\(currentGirl.plan )"  // 6th Label - Plan
         
-        print("the value of last name is \(model.lastNameOfGirl)")
-        print("the value of image download string is \(model.imageDownloadURLString)")
+        print("the value of last name is \(currentGirl.lastNameOfGirl)")
+        print("the value of image download string is \(currentGirl.imageDownloadURLString)")
         
         
         
-        if model.imageDownloadURLString == "N/A"  {
+        if currentGirl.imageDownloadURLString == "N/A"  {
             
         } else {
-        cell.profileImageView.loadImageFromUrl(strUrl: model.imageDownloadURLString, imgPlaceHolder:"")
+        cell.profileImageView.loadImageFromUrl(strUrl: currentGirl.imageDownloadURLString, imgPlaceHolder:"")
         }
            
-        
-        
-        /*
-         if let imgUrl = model.imageDownloadURLString{
-         let url = URL(string: imgUrl)
-         cell.profileImageView.kf.indicatorType = .activity
-         cell.profileImageView.kf.setImage(with: url)
-         }
-         */
-        
         return cell
     }
     
@@ -295,7 +285,11 @@ class FullTimeYeshivaViewController: UIViewController, UITableViewDataSource,UIT
                            as! UITableViewCell) {
       //4. index into array to get current girl
       let currentGirl = arrFilterList[indexPath.row]
-
+        
+      print("the selected indexPath is \(indexPath) and currentGirl is \(currentGirl.lastNameOfGirl)")
+        
+       // the selected indexPath is [1, 0] and currentGirl is Gantz
+        
       //5. set selectedNasiGirl using current Girl
       controller.selectedNasiGirl = currentGirl
             

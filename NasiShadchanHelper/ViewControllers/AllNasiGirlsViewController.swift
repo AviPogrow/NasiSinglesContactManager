@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class AllNasiGirlsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var allNasiGirlsList: [NasiGirl] = []
@@ -20,20 +20,41 @@ class AllNasiGirlsViewController: UIViewController, UITableViewDataSource, UITab
         tableView.dataSource = self
         
 
-
-    allNasiGirlsList = self.allNasiGirlsList.sorted(by: { ($0.lastNameOfGirl ) < ($1.lastNameOfGirl ) })
+        fetchAndCreateNasiGirlsArray()
+    //allNasiGirlsList = self.allNasiGirlsList.sorted(by: { ($0.lastNameOfGirl ) < ($1.lastNameOfGirl ) })
+    //self.allNasiGirlsList = self.allNasiGirlsList.filter { (singleGirl) -> Bool in
+    //    return singleGirl.category != Constant.CategoryTypeName.CategoryEngaged1
+    }
         
-    
-    self.allNasiGirlsList = self.allNasiGirlsList.filter { (singleGirl) -> Bool in
-        return singleGirl.category != Constant.CategoryTypeName.CategoryEngaged1
+    func fetchAndCreateNasiGirlsArray() {
+        
+      self.view.showLoadingIndicator()
+        
+      allNasiGirlsList.removeAll()
+        
+      let allNasiGirlsRef = Database.database().reference().child("NasiGirlsList")
+        
+        guard let myId = UserInfo.curentUser?.id else {return}
+        
+        allNasiGirlsRef.observe(.childAdded, with: { (snapshot) in
+        
+        let nasiGirl = NasiGirl(snapshot: snapshot)
+        self.allNasiGirlsList.append(nasiGirl)
+       
+        self.allNasiGirlsList = self.allNasiGirlsList.sorted(by: { ($0.lastNameOfGirl) < ($1.lastNameOfGirl)
+            
+        })
+        self.allNasiGirlsList = self.allNasiGirlsList.filter { (singleGirl) -> Bool in
+            return singleGirl.category != Constant.CategoryTypeName.CategoryEngaged1
+        }
+            
+        DispatchQueue.main.async(execute: {
+        self.view.hideLoadingIndicator()
+        self.tableView.reloadData()
+        })
+      })
     }
      
-        
- 
-    }
-    
-   
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -54,11 +75,6 @@ class AllNasiGirlsViewController: UIViewController, UITableViewDataSource, UITab
         
         let imageURLString = currentGirl.imageDownloadURLString
         
-        cell.backgroundColor = UIColor.white
-        
-        //cell.nameTextLabel.backgroundColor = UIColor.systemGroupedBackground
-        //cell.nameTextLabel!.text = "\(currentGirl.firstNameOfGirl)" + " " + "\(currentGirl.lastNameOfGirl)"
-        
         cell.configureCellForGirl(girl: currentGirl)
         
         cell.profileImageView.loadImageFromUrl(strUrl: currentGirl.imageDownloadURLString, imgPlaceHolder: "")
@@ -70,6 +86,10 @@ class AllNasiGirlsViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     // MARK:- Navigation

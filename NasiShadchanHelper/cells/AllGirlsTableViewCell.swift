@@ -26,7 +26,8 @@ class AllGirlsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         profileImageView.contentMode = .scaleAspectFit
         profileImageView.layer.cornerRadius = 8.0
-        profileImageView.clipsToBounds = true 
+        profileImageView.clipsToBounds = true
+        profileImageView.backgroundColor = UIColor.darkGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,10 +38,10 @@ class AllGirlsTableViewCell: UITableViewCell {
     
     func configureCellForGirl(girl: NasiGirl) {
  nameTextLabel.text = girl.nameSheIsCalledOrKnownBy + " " + girl.lastNameOfGirl
-heightAndAgeLabel.text = "\(girl.age) " + "\(girl.seminaryName)"
-"\(girl.heightInFeet)-Ft" + "\(girl.heightInInches)-Inches"
- cityAndSeminaryLabel.text =
- "\(girl.cityOfResidence) "
+heightAndAgeLabel.text = "\(girl.age) " + " - \(girl.seminaryName)"
+
+ cityAndSeminaryLabel.text = "\(girl.heightInFeet) ft" + " \(girl.heightInInches) Inch" + " " +
+ " - \(girl.cityOfResidence)"
 
  categoryCodeLabel.text = girl.category
     
