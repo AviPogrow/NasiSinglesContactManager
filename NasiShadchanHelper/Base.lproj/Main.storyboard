@@ -401,10 +401,10 @@
             </objects>
             <point key="canvasLocation" x="-3036" y="-209"/>
         </scene>
-        <!--Profile Details-->
+        <!--ShadchanListDetailViewController-->
         <scene sceneID="fTX-CG-9mz">
             <objects>
-                <tableViewController id="ad9-lp-W7g" customClass="ShadchanListDetailViewController" customModule="NasiShadchanHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ShadchanListDetailViewController" id="ad9-lp-W7g" userLabel="ShadchanListDetailViewController" customClass="ShadchanListDetailViewController" customModule="NasiShadchanHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="56g-xw-Yik">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="3000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1854,10 +1854,10 @@
             </objects>
             <point key="canvasLocation" x="-426.08695652173918" y="-2064.5089285714284"/>
         </scene>
-        <!--FT Learning-->
+        <!--FullTimeYeshivaViewController-->
         <scene sceneID="p6E-O6-a7J">
             <objects>
-                <viewController storyboardIdentifier="FullTimeYeshivaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sTp-Bp-YUK" customClass="FullTimeYeshivaViewController" customModule="NasiShadchanHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullTimeYeshivaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sTp-Bp-YUK" userLabel="FullTimeYeshivaViewController" customClass="FullTimeYeshivaViewController" customModule="NasiShadchanHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2j-RL-uqf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1971,7 +1971,6 @@
                                             <outlet property="nameLabel" destination="TCY-2y-ns4" id="Hec-AH-yon"/>
                                             <outlet property="parnassahPlanLabel" destination="AmJ-8e-gEB" id="tja-fz-tM8"/>
                                             <outlet property="profileImageView" destination="Fzf-q5-RP0" id="Dt5-JP-rP5"/>
-                                            <segue destination="ad9-lp-W7g" kind="show" identifier="ShowSingleDetail" id="Knn-Un-YOL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2142,7 +2141,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Knn-Un-YOL"/>
+        <segue reference="mGi-XO-wa8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AdinaDavis" width="252" height="335"/>

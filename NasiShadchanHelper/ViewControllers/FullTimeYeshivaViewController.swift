@@ -265,37 +265,48 @@ class FullTimeYeshivaViewController: UIViewController, UITableViewDataSource,UIT
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           tableView.deselectRow(at: indexPath, animated: true)
+           
+           if segmentCntrl.selectedSegmentIndex == 0 {
+             if indexPath.section == 0 {
+               arrFilterList = arrOnetoThreeSingleGirls
+               } else {
+               arrFilterList = arrThreeToFiveSingleGirls
+               }
+             }
+             else if segmentCntrl.selectedSegmentIndex == 1 {
+               arrFilterList = arrFiveYearsSingleGirls
+             }
+             if segmentCntrl.selectedSegmentIndex == 2 {
+               if indexPath.section == 0 {
+                 arrFilterList = fiveToSevenSingleGirls
+                } else {
+                  arrFilterList = sevenPlusSingleGirls
+                }
+              }
+           
+           let controller = storyboard!.instantiateViewController(withIdentifier: "ShadchanListDetailViewController") as! ShadchanListDetailViewController
+      
+           
+           var currentNasiGirl: NasiGirl!
+           currentNasiGirl = arrFilterList[indexPath.row]
+          controller.selectedNasiGirl = currentNasiGirl
+           
+           navigationController?.pushViewController(controller, animated: true)
+
+       }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
     
    
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-      // 1. segue id
-      if segue.identifier == "ShowSingleDetail" {
-    
-      // 2. segue destination as
-      let controller = segue.destination as! ShadchanListDetailViewController
-          
-      // 3. get index path
-      if let indexPath = tableView.indexPath(for: sender
-                           as! UITableViewCell) {
-      //4. index into array to get current girl
-      let currentGirl = arrFilterList[indexPath.row]
-        
-      print("the selected indexPath is \(indexPath) and currentGirl is \(currentGirl.lastNameOfGirl)")
-        
-       // the selected indexPath is [1, 0] and currentGirl is Gantz
-        
-      //5. set selectedNasiGirl using current Girl
-      controller.selectedNasiGirl = currentGirl
-            
-      }
-        }
-    }
+   
 }
 
 // MARK: - SEARCHBAR DELEGATE(S)
