@@ -12,14 +12,36 @@ class GirlSentCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
     
-    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var ageCityLabel: UILabel!
+     @IBOutlet weak var heightSeminaryLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    profileImageView.layer.cornerRadius = 8
+                profileImageView.layer.masksToBounds = true
+                profileImageView.contentMode = .scaleAspectFit
+    }
+    
+    func configureCellFor(currentGirl: NasiGirl) {
+        
+        
+       
+        
+        profileImageView.loadImageFromUrl(strUrl: currentGirl.imageDownloadURLString, imgPlaceHolder: "")
+        
+        
+        //profileImageView.image = currentGirl.imageDownloadURLString
+        nameLabel.text = currentGirl.nameSheIsCalledOrKnownBy + " " + currentGirl.lastNameOfGirl
+        
+        ageCityLabel.text = "\(currentGirl.age)" + " - " + "\(currentGirl.cityOfResidence)"
+        
+        heightSeminaryLabel.text = currentGirl.heightInFeet + " Ft" + " " + currentGirl.heightInInches + " Inch" + " - " + currentGirl.seminaryName
+        categoryLabel.text = currentGirl.category
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

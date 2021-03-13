@@ -113,6 +113,7 @@ class SentViewController: UITableViewController {
          
       let nasiGirl = arrayOfNasiGirls[indexPath.row]
             
+        /*
            let girlFirstName = nasiGirl.nameSheIsCalledOrKnownBy
             let girlLastName = nasiGirl.lastNameOfGirl
         _ = nasiGirl.imageDownloadURLString
@@ -137,12 +138,11 @@ class SentViewController: UITableViewController {
         //cell.timeLabel.text = "\(timestamp)"
         cell.timeLabel.textColor = .secondaryLabel
         
-        cell.profileImageView.layer.cornerRadius = 8
-         cell.profileImageView.layer.masksToBounds = true
-         cell.profileImageView.contentMode = .scaleAspectFit
-        cell.profileImageView.loadImageFromUrl(strUrl: nasiGirl.imageDownloadURLString, imgPlaceHolder: "")
+        
         //cell.profileImageView.loadImageUsingCacheWithUrlString(nasiGirl.imageDownloadURLString)
        
+ */
+        cell.configureCellFor(currentGirl: nasiGirl)
         return cell
      }
     

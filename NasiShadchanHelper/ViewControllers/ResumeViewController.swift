@@ -214,9 +214,16 @@ class ResumeViewController: UITableViewController {
                        print("error while sharing: \(shareError.localizedDescription)")
                           }
                       }
+            
+           //'UIPopoverPresentationController (<UIPopoverPresentationController: 0x7fe1dfc65d00>) should have a non-nil sourceView or barButtonItem set before the presentation occurs.'
+               
+           activityVC.popoverPresentationController?.sourceView = self.view
+           activityVC.popoverPresentationController?.sourceRect = self.view.bounds
              present(activityVC, animated: true, completion: nil)
         }
        }
+    
+   
     
     func shareResumeOnly() {
         
@@ -271,6 +278,10 @@ class ResumeViewController: UITableViewController {
                     print("error while sharing: \(shareError.localizedDescription)")
                        }
                    }
+        //'UIPopoverPresentationController (<UIPopoverPresentationController: 0x7fe1dfc65d00>) should have a non-nil sourceView or barButtonItem set before the presentation occurs.'
+            
+        activityVC.popoverPresentationController?.sourceView = self.view
+        activityVC.popoverPresentationController?.sourceRect = self.view.bounds
         
         present(activityVC, animated: true, completion: nil)
         }
