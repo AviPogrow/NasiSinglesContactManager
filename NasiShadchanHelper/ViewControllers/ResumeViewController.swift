@@ -178,6 +178,9 @@ class ResumeViewController: UITableViewController {
             "\(selectedNasiGirl.lastNameOfGirl)"
         
         let activityVC =  UIActivityViewController(activityItems: [documentAsImage!,imageToShare!,textMessageString], applicationActivities: [])
+            
+            activityVC.popoverPresentationController?.sourceView = btnShareResumeAndPhoto
+                   //activityVC.popoverPresentationController?.barButtonItem = sender
            
            activityVC.excludedActivityTypes = [
                UIActivity.ActivityType.postToWeibo,
@@ -217,13 +220,15 @@ class ResumeViewController: UITableViewController {
             
            //'UIPopoverPresentationController (<UIPopoverPresentationController: 0x7fe1dfc65d00>) should have a non-nil sourceView or barButtonItem set before the presentation occurs.'
                
-           activityVC.popoverPresentationController?.sourceView = self.view
-           activityVC.popoverPresentationController?.sourceRect = self.view.bounds
+           //activityVC.popoverPresentationController?.sourceView = self.view
+          // activityVC.popoverPresentationController?.sourceRect = self.view.bounds
              present(activityVC, animated: true, completion: nil)
         }
        }
     
    
+    
+    
     
     func shareResumeOnly() {
         
@@ -241,6 +246,11 @@ class ResumeViewController: UITableViewController {
             
        
         let activityVC = UIActivityViewController(activityItems: [textMessageString, documentAsImage!], applicationActivities: [])
+            
+      
+              
+        activityVC.popoverPresentationController?.sourceView = btnShareResumeOnly
+        //activityVC.popoverPresentationController?.barButtonItem = sender
         
         activityVC.excludedActivityTypes = [
             UIActivity.ActivityType.postToWeibo,
@@ -280,8 +290,8 @@ class ResumeViewController: UITableViewController {
                    }
         //'UIPopoverPresentationController (<UIPopoverPresentationController: 0x7fe1dfc65d00>) should have a non-nil sourceView or barButtonItem set before the presentation occurs.'
             
-        activityVC.popoverPresentationController?.sourceView = self.view
-        activityVC.popoverPresentationController?.sourceRect = self.view.bounds
+        //activityVC.popoverPresentationController?.sourceView = self.view
+        //activityVC.popoverPresentationController?.sourceRect = self.view.bounds
         
         present(activityVC, animated: true, completion: nil)
         }
@@ -435,7 +445,7 @@ extension ResumeViewController: URLSessionDownloadDelegate {
 //
 extension ResumeViewController {
     @IBAction func btnShareResumeTapped(_ sender: Any) {
-        self.shareResumeOnly()
+       self.shareResumeOnly()
         
     }
     

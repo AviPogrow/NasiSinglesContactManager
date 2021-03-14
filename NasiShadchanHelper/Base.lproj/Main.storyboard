@@ -2142,11 +2142,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Send Resume" largeTitleDisplayMode="always" id="Ecc-Qh-1Ly">
-                        <barButtonItem key="rightBarButtonItem" id="tGw-Ve-rpc">
-                            <connections>
-                                <action selector="saveTapped:" destination="t92-ba-g2T" id="aTY-PL-ZyF"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="tGw-Ve-rpc"/>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="3000"/>
                     <connections>
@@ -2159,7 +2155,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VQ-8w-8BZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531.8840579710145" y="-96.428571428571431"/>
+            <point key="canvasLocation" x="1435" y="105"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
