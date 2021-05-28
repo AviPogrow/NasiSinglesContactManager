@@ -60,6 +60,9 @@
     @IBOutlet weak var lblPlan: UILabel!
     @IBOutlet weak var lblLivingInIsrael: UILabel!
     @IBOutlet weak var lblFamilyBg: UILabel!
+    //@IBOutlet weak var whatIsSheDoingLabel: UILabel!
+    
+    
     
     //Section 5
     @IBOutlet weak var lblLastNameToRed: UILabel!
@@ -405,6 +408,7 @@
         lblDob.text = "\(selectedSingle!.age)"
         lblLivingInIsrael?.text = "\(selectedSingle?.livingInIsrael ?? "")"
         lblFamilyBg?.text = "\(selectedSingle?.girlFamilyBackground ?? "")"
+        //whatIsSheDoingLabel.text = "\(selectedSingle?.briefDescriptionOfWhatGirlIsDoing ?? "")"
     }
     
     //TODO: SetUp Data For To redd a shidduch Section

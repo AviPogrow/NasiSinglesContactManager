@@ -37,7 +37,7 @@ class AllGirlsTableViewCell: UITableViewCell {
     }
     
     func configureCellForGirl(girl: NasiGirl) {
- nameTextLabel.text = girl.nameSheIsCalledOrKnownBy + " " + girl.lastNameOfGirl
+ nameTextLabel.text = girl.lastNameOfGirl + " " + girl.nameSheIsCalledOrKnownBy
 heightAndAgeLabel.text = "\(girl.age) " + " - \(girl.seminaryName)"
 
  cityAndSeminaryLabel.text = "\(girl.heightInFeet) ft" + " \(girl.heightInInches) Inch" + " " +

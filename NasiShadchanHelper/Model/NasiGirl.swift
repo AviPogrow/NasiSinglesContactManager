@@ -20,6 +20,7 @@ class NasiGirl: NSObject {
     var  sentListRef: String = ""
     var  briefDescriptionOfWhatGirlIsLike = ""
     var  briefDescriptionOfWhatGirlIsLookingFor = ""
+    var briefDescriptionOfWhatGirlIsDoing = ""
     var category = ""
     var cellNumberOfContactToReddShidduch = ""
     var cityOfResidence = ""
@@ -72,10 +73,28 @@ class NasiGirl: NSObject {
         //let value = snapshot.value as! [String: AnyObject]
         guard  let value = snapshot.value! as? [String: String] else { return }
         
+       
+        
+        
+        
+        
+        
         let lastNameOfGirl = value["lastNameOfGirl"] ?? ""
         
         let briefDescriptionOfWhatGirlIsLike = value["briefDescriptionOfWhatGirlIsLike"] ?? ""
         let briefDescriptionOfWhatGirlIsLookingFor = value["briefDescriptionOfWhatGirlIsLookingFor"] ?? ""
+        
+        let briefDescriptionOfWhatGirlIsDoing = value["briefDescriptionOfWhatGirlIsDoing"] ?? ""
+        
+        
+        print("the value for name is \(firstNameOfGirl) - \(lastNameOfGirl)and whatsSheLike----\(briefDescriptionOfWhatGirlIsLike)and whatSheslookingFor----\(briefDescriptionOfWhatGirlIsLookingFor)and whatsSheDoing:---\(briefDescriptionOfWhatGirlIsDoing)")
+        
+        
+        
+        
+        
+        
+        
         let category = value["category"] ?? ""
         let cellNumberOfContactWhoKNowsGirl = value["cellNumberOfContactWhoKNowsGirl"] ?? ""
         
@@ -162,6 +181,9 @@ class NasiGirl: NSObject {
         
         self.briefDescriptionOfWhatGirlIsLike = briefDescriptionOfWhatGirlIsLike
         self.briefDescriptionOfWhatGirlIsLookingFor = briefDescriptionOfWhatGirlIsLookingFor
+        
+        self.briefDescriptionOfWhatGirlIsDoing = briefDescriptionOfWhatGirlIsDoing
+        
         self.category = category
         self.cellNumberOfContactToReddShidduch = cellNumberOfContactToReddShidduch
         self.cellNumberOfContactWhoKNowsGirl = cellNumberOfContactWhoKNowsGirl
